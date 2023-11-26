@@ -1,0 +1,146 @@
+[
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_fileHash",
+				"type": "string"
+			},
+			{
+				"name": "_fileSize",
+				"type": "uint256"
+			},
+			{
+				"name": "_fileType",
+				"type": "string"
+			},
+			{
+				"name": "_fileName",
+				"type": "string"
+			}
+		],
+		"name": "fileUpload",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "fileID",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "fileHash",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"name": "fileSize",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "fileType",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"name": "fileName",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"name": "uploadedTime",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "uploader",
+				"type": "address"
+			}
+		],
+		"name": "FileUploaded",
+		"type": "event"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "fileCount",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "fileHash",
+				"type": "string"
+			}
+		],
+		"name": "fileExists",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "files",
+		"outputs": [
+			{
+				"name": "fileID",
+				"type": "uint256"
+			},
+			{
+				"name": "fileHash",
+				"type": "string"
+			},
+			{
+				"name": "fileSize",
+				"type": "uint256"
+			},
+			{
+				"name": "fileType",
+				"type": "string"
+			},
+			{
+				"name": "fileName",
+				"type": "string"
+			},
+			{
+				"name": "uploadTime",
+				"type": "uint256"
+			},
+			{
+				"name": "uploader",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
