@@ -42,7 +42,7 @@ That file has some notable attributes:
 
 ```bash
 # Initialize the network with genesis block configuration
-geth --datadir NETWORK_DIRECTORY genesis.json
+geth --datadir NETWORK_DIRECTORY init genesis.json
 ```
 
 ### Create account
