@@ -3,6 +3,19 @@
 ## About
 This project is a simple implementation of a private network that allows users to upload and retrieve files on an IPFS servers. The information about these files are stored on a smart contract deplyed in a private Ethereum network.
 
+## Install dependencies
+
+Backend's dependencies:
+```bash
+cd backend
+pip install -r requirements.txt
+```
+Frontend's dependencies:
+```bash
+cd frontend
+npm i
+```
+
 ## Set up Private Ethereum Network
 
 ### Download Geth
@@ -93,19 +106,6 @@ geth --datadir NETWORK_DIRECTORY --nodiscover --http --http.addr localhost --htt
 ## Set up IPFS
 
 Follow this [guide](https://medium.com/@s_van_laar/deploy-a-private-ipfs-network-on-ubuntu-in-5-steps-5aad95f7261b)
-
-## Install dependencies
-
-Backend's dependencies:
-```bash
-cd backend
-pip install -r requirements.txt
-```
-Frontend's dependencies:
-```bash
-cd frontend
-npm i
-```
 
 ## Start the app
 
