@@ -20,7 +20,7 @@ npm i
 
 ### Download Geth
 
-Download the latest version of Geth [here](https://geth.ethereum.org/downloads).
+Download the 1.11 version of Geth [here](https://geth.ethereum.org/downloads).
 
 ### Create genesis.json
 
