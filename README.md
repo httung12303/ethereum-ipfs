@@ -1,16 +1,16 @@
 # Distributed storage using Private Ethereum + IPFS network
 
 ## About
-This project is a simple implementation of a private network that allows users to upload and retrieve files on an IPFS servers. The information about these files are stored on a smart contract deplyed in a private Ethereum network.
+This project is a simple implementation of a private network that allows users to upload and retrieve files on an IPFS servers. The information about these files are stored on a smart contract deployed a private Ethereum network.
 
 ## Install dependencies
 
-Backend's dependencies:
+Install backend dependencies:
 ```bash
 cd backend
 pip install -r requirements.txt
 ```
-Frontend's dependencies:
+Instal frontend dependencies:
 ```bash
 cd frontend
 npm i
@@ -24,9 +24,11 @@ Download the 1.11 version of Geth [here](https://geth.ethereum.org/downloads).
 
 ### Create genesis.json
 
-`genesis.json` provides the configuration for the network's genesis block and the entire network as a whole.
+`genesis.json` provides the configuration for the network's genesis block and the entire network as a whole. The blockchain in this project uses PoW consensus algorithm for simplicity (I had trouble setting up the blockchain using PoA and PoS). If you prefer PoA, which is recommended for a private network, replace the `ethash` property with `clique` in `genesis.json`, refer to Geth's official documentation about [private networks](https://geth.ethereum.org/docs/fundamentals/private-network) for more information. 
 
-Here is a sample `genesis.json`:
+I couldn't find any reliable example of using PoS since the implementations I found were rather dated and the authors did not include the specific version of Geth they were using.
+
+Here is the sample `genesis.json`:
 ```json
 {
   "config": {
@@ -46,10 +48,10 @@ Here is a sample `genesis.json`:
 }
 ```
 
-That file has some notable attributes:
-- `chainid`: The id of our chain, you can use any arbitrary id as long as it does not match Ethereum mainnet (1) or popular testnets.
-- `ethash`: The consensus algorithm. `ethash` will implement PoW in the network, choose `clique` for PoA and `casper` for PoS.
-- `gasLimit`: The target gas limit of the network.
+NOTE:
+- `chainid`: The id of our chain, you can use any arbitrary id as long as it does not match Ethereum mainnet (1) or popular testnets. Geth's documentation did not instruct how to isolate the private network with the same chain id as public networks, but I assume this can be achieved with the network configuration in the command you would use to run Geth nodes.
+- `ethash`: The consensus algorithm. `ethash` will implement PoW in the network, choose `clique` for PoA (some article say you specify `casper` for PoS).
+- `gasLimit`: The target gas limit of the network. If you encounter errors regarding not having enough gas to execute transactions, it means that the block gas limit has stabilized around this target amount (which should be below the gas fee if you have this error) and you should either reset the network to reset the block gas limit or change the `gasLimit`.
 
 ### Initialize Geth with genesis.json
 
@@ -109,13 +111,9 @@ Follow this [guide](https://medium.com/@s_van_laar/deploy-a-private-ipfs-network
 
 ## Start the app
 
-Remember to start the Ethereum and IPFS networks first.
+Remember to start the Ethereum and IPFS networks beforehand.
 
 ```bash
-# On a terminal
-npm run dev:frontend
-
-# On another
-npm run start:backend
+npm run dev:frontend & && npm run start:backend &
 ```
 
